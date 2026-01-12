@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence Overview</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+    const logo = document.getElementById("logo");
+
+    // Add animation to the logo
+    logo.style.transition = "transform 0.8s ease-in-out";
+    logo.style.transform = "scale(1.2)";
+
+    setTimeout(() => {
+        logo.style.transform = "scale(1)";
+    }, 1000);
+
+    // Create a welcome message
+    const welcomeMessage = document.createElement("div");
+    welcomeMessage.textContent = "Welcome to SmartSage!";
+    welcomeMessage.style.position = "fixed";
+    welcomeMessage.style.top = "50%";
+    welcomeMessage.style.left = "50%";
+    welcomeMessage.style.transform = "translate(-50%, -50%)";
+    welcomeMessage.style.background = "rgba(0, 0, 0, 0.7)";
+    welcomeMessage.style.color = "white";
+    welcomeMessage.style.padding = "20px 40px";
+    welcomeMessage.style.borderRadius = "15px";
+    welcomeMessage.style.fontSize = "1.8em";
+    welcomeMessage.style.fontWeight = "bold";
+    welcomeMessage.style.zIndex = "1000";
+    welcomeMessage.style.opacity = "0";
+    welcomeMessage.style.transition = "opacity 1.5s ease";
+
+    document.body.appendChild(welcomeMessage);
+
+    setTimeout(() => {
+        welcomeMessage.style.opacity = "1";
+    }, 500);
+
+    setTimeout(() => {
+        welcomeMessage.style.opacity = "0";
+        welcomeMessage.remove();
+    }, 4000);
+
+    // Add a quote below the logo
+    const quote = document.createElement("div");
+    quote.textContent = "SmartSage: Wisdom in Using AI";
+    quote.style.position = "fixed";
+    quote.style.top = "20%";
+    quote.style.right = "10%";
+    quote.style.background = "rgba(255, 255, 255, 0.9)";
+    quote.style.color = "#573e5c";
+    quote.style.padding = "10px 20px";
+    quote.style.borderRadius = "8px";
+    quote.style.fontSize = "1.2em";
+    quote.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.2)";
+    quote.style.animation = "fade-in 2s ease, fade-out 2s 6s ease forwards";
+
+    document.body.appendChild(quote);
+
+    // Keyframe animations
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerHTML = `
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fade-out {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    `;
+    document.head.appendChild(styleSheet);
+});
+        console.log("Page loaded!");
+    </script>
+</head>
+<body>
+    <style>
+body {
+    margin: 0;
+    padding: 0 10px; /* Adjusted to add padding on both sides */
+    font-family: "Garamond", "Times New Roman", serif;
+    color: #573e5c;
+    line-height: 1.6;
+    background-image: linear-gradient(120deg, #f6d6e7, #c4bdd4); /* Softer gradient background */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Header Styling */
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.logo {
+    position: fixed; /* Ensures the logo stays fixed when scrolling */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    width: 150px; /* Adjust size of the logo */
+    height: auto; /* Maintains the aspect ratio of the image */
+    z-index: 1000; /* Ensures the logo stays above other content */
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+
+/* Navigation Bar Styling */
+nav {
+    position: fixed;
+    top: 10px;
+    left: 40px;
+    display: flex;
+    gap: 25px;
+    background-image: url("bar.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 10; /* Ensure it stays above the background block */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Add a background block behind the nav */
+nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #AB8FB8;
+    z-index: -1; /* Send the background block behind the nav */
+    border-radius: 5px;
+}
+
+nav:hover {
+    transform: scale(1.05);
+}
+
+nav a {
+    color: #573e5c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-right: 10px; /* Added from second block */
+}
+
+nav a:hover {
+    color: #776B89;
+    text-decoration: underline;
+}
+
+/* Typography Styling */
+h2, h3, h4 {
+    margin: 10px 100;
+    color: #573e5c;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+li {
+    margin: 5px 0;
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid black; /* Merged styles */
+    border-radius: 10px; /* Added from first block */
+}
+
+th {
+    background-color: #776B89;
+    color: white;
+    text-align: center;
+}
+
+td {
+    background-color: #AB8FB8;
+    color: white;
+}
+
+caption {
+    color: #68507B;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Animation for Subtle Movements */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Button Styling */
+button {
+    background-color: #573e5c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: float 3s infinite ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #776B89;
+}
+
+/* iframe Styling */
+iframe {
+    display: block;
+    margin: 20px auto;
+    border: none;
+}
+
+/* Link Styling */
+a {
+    color: #573e5c;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for Rounded Corners */
+table, th, td {
+    border: 1px solid white; /* Original style maintained */
+    border-radius: 10px;
+}
+/* Form Page Styling */
+form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px 30px;
+    border: 2px solid #AB8FB8;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.10);
+    font-family: "Garamond", "Times New Roman", serif;
+}
+
+/* Form Labels */
+form label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #573e5c;
+}
+
+/* Form Input Fields */
+form input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #AB8FB8;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    color: #573e5c;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus {
+    border-color: #776B89;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(123, 93, 136, 0.5);
+}
+
+/* Radio Buttons */
+form input[type="radio"] {
+    margin-right: 10px;
+}
+
+form input[type="radio"] + label {
+    font-size: 1em;
+    color: #573e5c;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* Submit Button */
+form input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background-color: #573e5c;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #776B89;
+    transform: scale(1.05);
+}
+
+/* Title and Text Alignments */
+form h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #573e5c;
+    margin-bottom: 20px;
+}
+
+form p {
+    font-size: 1em;
+    color: #776B89;
+    text-align: center;
+    margin-bottom: 20px;
+}
+</style>
+    <nav>
+        <a href="intro.html">Introduction</a>
+        <a href="whatis.html">What is Artificial Intelligence</a>
+        <a href="aiapp.html">AI Applications</a>
+        <a href="whatadv.html">Advantages of Artificial Intelligence</a>
+        <a href="Chaoai.html">Challenges of AI</a>
+        <a href="aipl.html">AI Programming Languages</a>
+        <a href="conlo.html">Conclusion</a>
+    </nav>
+<img src="SS.png" alt="Logo" class="logo">
+
+    <br><br><br><br>
+
+    <div>
+        <h2>Introduction:</h2>
+        <h3>In a world where technological developments are accelerating at an astonishing rate...</h3>
+    </div>
+
+    <h2>What is Artificial Intelligence?</h2>
+    <h4>Artificial intelligence (AI) is the field of computer science dedicated to...</h4>
+
+    <table>
+        <caption>There are several types of AI:</caption>
+        <tr>
+            <th>Narrow AI (Weak AI)</th>
+            <th>General AI (Strong AI)</th>
+            <th>Superintelligent AI</th>
+        </tr>
+        <tr>
+            <td>Designed to perform a specific task...</td>
+            <td>Hypothetical AI that could understand, learn...</td>
+            <td>An advanced form of AI that surpasses human intelligence...</td>
+        </tr>
+    </table>
+
+    <h2>AI Applications:</h2>
+    <p>There are many applications of AI in various fields:</p>
+    <h4>
+        <ul>
+            <li>Health: disease diagnosis, drug development...</li>
+            <li>Commerce: personalized marketing...</li>
+            <li>Transportation: self-driving cars...</li>
+            <li>Education: personalized learning...</li>
+            <li>Entertainment: gaming, content generation...</li>
+        </ul>
+    </h4>
+
+    <h2>What are the advantages of Artificial Intelligence?</h2>
+    <h4>AI offers a range of benefits...</h4>
+
+    <h2>Challenges of AI:</h2>
+    <h4>
+        <ul>
+            <li>Privacy and security: The collection...</li>
+            <li>Job loss: The spread of AI could lead...</li>
+            <li>Bias: AI systems may reflect...</li>
+            <li>Unpredictable behavior: AI may behave...</li>
+        </ul>
+    </h4>
+
+    <h2>Artificial Intelligence Programming Languages:</h2>
+    <h4>
+        <ol>
+            <li>Python</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>Lisp</li>
+            <li>Julia</li>
+        </ol>
+    </h4>
+
+    <h2>Made by AI:</h2>
+    <ul>
+        <li>Gemini</li>
+        <li>Gamma</li>
+        <li>AI Generated Videos</li>
+        <li>ChatGPT</li>
+        <li>Sofia</li>
+        <li>Amica Robot</li>
+    </ul>
+
+    <iframe width="754" height="424" src="./Artificial intelligence_files/saved_resource.html"></iframe>
+
+    <h2>Conclusion:</h2>
+    <h3>Artificial intelligence has proven to be a driving force for change...</h3>
+
+    <h2>Sources:</h2>
+    <ul>
+        <li><a href="https://bakkah.com/ar/knowledge-center/%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A">Artificial Intelligence Programming Languages</a></li>
+        <li><a href="https://aws.amazon.com/ar/what-is/artificial-intelligence/">What is Artificial Intelligence?</a></li>
+        <li><a href="https://invideo.io/make/add-text-to-video-online-web/">Convert text to videos with AI</a></li>
+        <li><a href="https://gemini.google.com/app?hl=ar-SA">Gemini</a></li>
+        <li><a href="https://chatgpt.com/">ChatGPT</a></li>
+        <li><a href="https://www.alarabiya.net/science/2022/09/13/">Amica Robot</a></li>
+        <li><a href="https://gamma.app/">Gamma</a></li>
+        <li><a href="https://www.aljazeera.net/encyclopedia/2023/5/7/">Sofia</a></li>
+    </ul>
+
+    <form>
+         <label for="projectFeedback">Did you like the project?</label>
+    <input type="radio" id="projectYes" name="projectFeedback" value="yes">
+    <label for="projectYes">Yes</label>
+    <input type="radio" id="projectNeutral" name="projectFeedback" value="neutral">
+    <label for="projectNeutral">Neutral</label>
+    <input type="radio" id="projectNo" name="projectFeedback" value="no">
+    <label for="projectNo">No</label>
+
+    <label for="likeSearch">Did you like the search?</label>
+    <input type="radio" id="likeSearchYes" name="likeSearch" value="yes">
+    <label for="likeSearchYes">Yes</label>
+    <input type="radio" id="likeSearchNo" name="likeSearch" value="no">
+    <label for="likeSearchNo">No</label>
+
+    <label for="opinion">We would like to know your opinion about the research and the benefits it has provided you:</label>
+    <input type="text" id="opinion" name="opinion" placeholder="Share your thoughts...">
+
+    <input type="submit" value="Submit Feedback">
+</form>
+</body>
+</html>
+
